@@ -56,7 +56,7 @@ enum FlCode
 
 // TODO: not all characters map to ascii
 
-static char fl2ascii[] = {
+static int fl2ascii[] = {
 	-1, -1, 'e', '8', -1, '|', 'a', '3',
 	' ', '=', 's', '4', 'i', '+', 'u', '2',
 	FlColor, '.', 'd', '5', 'r', '1', 'j', '7',
