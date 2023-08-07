@@ -10,5 +10,7 @@ typedef uint8_t u8;
 enum {
 	REG_PC,
 	REG_AC,
-	REG_IO
+	REG_IO,
+	REG_SS,
+	REG_PF
 };

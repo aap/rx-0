@@ -197,6 +197,7 @@ getfl(Flexowriter *fl)
 {
 	char c;
 	read(fl->in, &c, 1);
+	write(fl->out, &c, 1);	// local echo
 	return c;
 }
 
@@ -358,7 +359,15 @@ handleio(TX0 *tx)
 		if(hasinput(tx->fl->in)){
 			c = getfl(tx->fl);
 			tx->lr = 0400000;
+	// this is correct:
 			tx->lr |= (c&077) << 11;
+	// this is not:
+	//if(c & 001) tx->lr |= 0000001;
+	//if(c & 002) tx->lr |= 0000010;
+	//if(c & 004) tx->lr |= 0000100;
+	//if(c & 010) tx->lr |= 0001000;
+	//if(c & 020) tx->lr |= 0010000;
+	//if(c & 040) tx->lr |= 0100000;
 		}
 		// don't wanna poll this all the time
 		// around 16cps max
@@ -395,7 +404,7 @@ handleio(TX0 *tx)
 			cmd |= y<<10;
 			cmd |= 7<<20;
 			write(tx->scope_fd, &cmd, 4);
-//	usleep(100);
+//	usleep(1000);
 		}
 		tx->displaying = 0;
 		iorestart(tx);
@@ -552,7 +561,10 @@ void cpu_stopmem(void)
 {
 }
 
-void cpu_cont(void);
+void cpu_cont(void)
+{
+	printf("continue not implemented\n");
+}
 
 void
 cpu_nextinst(void)

@@ -565,6 +565,11 @@ threadmain(int argc, char *argv[])
 					cpu_start(t);
 				started = 1;
 				break;
+			case 'P':
+				endword(&t);
+				cpu_cont();
+				started = 1;
+				break;
 			case CTL('N'):
 				endword(&t);
 				if(flags & CF)

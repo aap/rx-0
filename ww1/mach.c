@@ -1465,7 +1465,10 @@ void cpu_stopmem(void)
 {
 }
 
-void cpu_cont(void);
+void cpu_cont(void)
+{
+	printf("continue not implemented\n");
+}
 
 void
 cpu_nextinst(void)
