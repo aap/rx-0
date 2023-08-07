@@ -355,14 +355,14 @@ shro(PDP1 *pdp)
 		io = (IO&~B0)<<1 | (AC&B0)>>17;
 		break;
 	case 005:	// SAL
-		ac = (AC&B0) | (AC&~(B0|B1))<<1 | (AC&B17);
+		ac = (AC&B0) | (AC&~(B0|B1))<<1 | (AC&B0)>>17;
 		break;
 	case 006:	// SIL
-		io = (IO&B0) | (IO&~(B0|B1))<<1 | (IO&B17);
+		io = (IO&B0) | (IO&~(B0|B1))<<1 | (IO&B0)>>17;
 		break;
 	case 007:	// SCL
 		ac = (AC&B0) | (AC&~(B0|B1))<<1 | (IO&B0)>>17;
-		io = (IO&~B0)<<1 | (IO&B17);
+		io = (IO&~B0)<<1 | (AC&B0)>>17;
 		break;
 	case 011:	// RAR
 		ac = (AC&B17)<<17 | AC>>1;
