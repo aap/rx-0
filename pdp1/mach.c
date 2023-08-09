@@ -405,14 +405,7 @@ cycle0(PDP1 *pdp)
 	// TP2
 	if(IR_SHRO && (MB & B10)) shro(pdp);
 	PC = (PC+1) & ADDRMASK;
-	if(IR_IOT) {
-		if(!pdp->ioh && !pdp->ihs) {
-			pdp->ioc = 1;
-			pdp->ios = 0;
-		} else {
-			pdp->ioc = 0;
-		}
-	}
+	if(IR_IOT) pdp->ioc = !pdp->ioh && !pdp->ihs;
 	pdp->ihs = 0;
 
 	// TP3
@@ -523,7 +516,7 @@ defer(PDP1 *pdp)
 	if(MB & B5) {
 		// TP6
 		pdp->df2 = 1;
-
+	} else {
 		// TP7
 		if(IR_JSP) AC = 0;
 
