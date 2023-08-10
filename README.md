@@ -3,11 +3,11 @@
 This project is mostly a toy I wrote for myself to play around
 with old computers.
 
-Currently it sort of simulated the Whirlwind I and the TX-0
-with some peripherals.
+Currently it sort of simulates the Whirlwind I and the TX-0
+with some peripherals, and the PDP-1 without any peripherals.
 
-The PDP-1 is just a stub right now. Hopefully I'll get around to
-it some day. PDP-4 and -5 would also be nice to have.
+The PDP-1 should have some peripherals,
+and a PDP-4 and -5 would also be nice to have.
 Whirlwind II (aka AN/FSQ-7) would be nice as well,
 TX-2 I don't know yet.
 
